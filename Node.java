@@ -11,7 +11,7 @@ public class Node {
 	private int height; //Height of the tree at this node
 	
 	//Constructor
-	private Node (int i, String n, double g, Node p){
+	public Node (int i, String n, double g, Node p){
 		ID = i;
 		name = n;
 		gpa = g;
@@ -22,6 +22,15 @@ public class Node {
 	@Override
 	public int compareTo(Node arg0) {
 		return this.ID == getID();
+	}
+	
+	//Returns true if this node has children
+	public boolean hasChildren(){
+		if((right != null) || (left != null)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	//Getters and setters
