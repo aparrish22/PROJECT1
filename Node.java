@@ -18,6 +18,11 @@ public class Node {
 		parent = p;
 		left = right = null;	
 	}
+
+	@Override
+	public int compareTo(Node arg0) {
+		return this.ID == getID();
+	}
 	
 	//Getters and setters
 	public int getID() {
