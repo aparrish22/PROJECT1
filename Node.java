@@ -18,7 +18,8 @@ public class Node {
 		parent = p;
 		left = right = null;	
 	}
-
+	
+	//Compares two nodes
 	@Override
 	public int compareTo(Node arg0) {
 		return this.ID == getID();
