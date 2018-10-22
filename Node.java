@@ -1,3 +1,4 @@
+//This class is a Node for the BST and AVL Trees, and stores all the student information.
 public class Node {
 	//Student Variables
 	private int ID;
@@ -22,15 +23,6 @@ public class Node {
 	@Override
 	public int compareTo(Node arg0) {
 		return this.ID == getID();
-	}
-	
-	//Returns true if this node has children
-	public boolean hasChildren(){
-		if((right != null) || (left != null)){
-			return true;
-		}else{
-			return false;
-		}
 	}
 	
 	//Getters and setters
