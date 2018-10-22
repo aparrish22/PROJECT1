@@ -17,7 +17,8 @@ public class Node {
 		name = n;
 		gpa = g;
 		parent = p;
-		left = right = null;	
+		left = right = null;
+		height = 0;
 	}
 	
 	//Compares two nodes
