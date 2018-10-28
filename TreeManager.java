@@ -12,11 +12,11 @@ public class TreeManager {
 			return nodepack.getNode().getID();
     	}
 
-	public Node minID(Object tree) {
+	public NodePackage minID(Object tree) {
         	return tree.min();
 	}
 
-	public Node maxID(Object tree) {
+	public NodePackage maxID(Object tree) {
         	return tree.max();
     	}
 }
