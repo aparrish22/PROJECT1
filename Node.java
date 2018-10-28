@@ -1,5 +1,5 @@
 //This class is a Node for the BST and AVL Trees, and stores all the student information.
-public class Node {
+public class Node implements Comparable<Node>{
 	//Student Variables
 	private int ID;
 	private String name;
@@ -17,17 +17,25 @@ public class Node {
 		name = n;
 		gpa = g;
 		parent = p;
-		left = right = null;
-		height = 0;
+		left = right = null;	
 	}
-	
-	//Compares two nodes
+
 	@Override
 	public int compareTo(Node arg0) {
-		return this.ID == getID();
+		return Integer.toString(this.getID()).compareTo(Integer.toString(arg0.getID()));
+	}
+
+	@Override
+	public String toString() {
+		return "Student ID: " + this.getID() + "\nStudent Name: " + this.getName() + "\nStudent GPA: " + this.getGpa() + "\n";
 	}
 	
 	//Getters and setters
+	// to make compatible with class BinarySearchTree.java
+	public int getInfo() {
+		return getID();
+	}
+
 	public int getID() {
 		return ID;
 	}
