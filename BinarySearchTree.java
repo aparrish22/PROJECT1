@@ -1,12 +1,6 @@
 /*
- * TODO
- * minID(), maxID(),
- *  
- * figure out what passing BSTNode<T> is compared to T element
- * 
- * *** new parameter in find(NodePackage _)
- * NodePackage.java class will have 2 variables, the Node and an interger (will pass the size into it)
- * to indicate how many nodes the node has passed through
+ *
+ * DONE
  * 
  */
 
@@ -111,38 +105,37 @@ public class BinarySearchTree<T> implements BSTInterface<T>, Iterable<T> {
 		return node;
 
     }
-	
-	// TODO, figure out how to find the smallest, min and max NODE
 
     // return minimum node
     public T min() {
-
-
 		// if tree is not empty
 		if (root != null) {
+
+			BSTNode<T> node = root;
 			// find the smallest
 			while (node.getLeft != null)
 				node = node.getLeft();
-			
 		}
 
         return null;
     }
 
 	// return maximum node
-    // public T max() {
-	// 	if (root != null) {
-	// 		while (node.)
-	// 	}
-    //     return null;
-    // }
+    public T max() {
+		if (root != null) {
+			BSTNode<T> node = root;
+			while (node.getRight != null)
+				node = node.getRight();
+		}
+        return null;
+    }
 
-	// private T findSmallest(BSTNode<T> node) {
-	// 	while (node.getLeft() != null)
-	// 		node = node.getLeft();
+	private T findSmallest(BSTNode<T> node) {
+		while (node.getLeft() != null)
+			node = node.getLeft();
 
-	// 	return node.getInfo();
-	// }
+		return node.getInfo();
+	}
 
 	
 	
