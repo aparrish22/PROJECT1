@@ -3,6 +3,30 @@ package project;
 public class AVLTree {
 	private Node root;
 	
+	//Returns student info with minimum id
+	public NodePackage min(){
+		Node current = root;
+		int count = 1;
+		
+		while(current.getLeft() != null){
+			count++;
+			current = current.getLeft();
+		}
+		return new NodePackage(current, count);
+	}
+	
+	//Returns student info with maximum id
+	public NodePackage max(){
+		Node current = root;
+		int count = 1;
+		
+		while(current.getRight() != null){
+			count++;
+			current = current.getRight();
+		}
+		return new NodePackage(current, count);
+	}
+	
 	//Inserts the given node
 	public void insert(Node insert){
 		insert(root, insert);
