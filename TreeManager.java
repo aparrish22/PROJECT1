@@ -5,11 +5,7 @@ public class TreeManager {
 	}
 	
 	public NodePackage find(Object tree, int id) {
-        	NodePackage nodepack = tree.find(id);
-        	if (nodepack == null)
-			return null;
-		else 
-			return nodepack.getNode().getID();
+        	return tree.find(id);
     	}
 
 	public NodePackage minID(Object tree) {
