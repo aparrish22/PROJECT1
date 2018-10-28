@@ -51,16 +51,16 @@ public class BinarySearchTree<T> implements BSTInterface<T>, Iterable<T> {
 		root = insertAux(root, element);
 	}
 
-	private T findAux(BSTNode<T> node, T target) {
+	private T findAux(BSTNode<T> node, T target,int count) {
 		if (node != null) {
 			int cmp = comp.compare(node.getInfo(), target);
-
+			count++;
 			if (cmp == 0)
-				return node.getInfo();
+				return new NodePackage(node.getInfo(),count);
 			else if (cmp < 0) {
-				return findAux(node.getRight(), target);
+				return findAux(node.getRight(), target, count);
 			} else if (cmp > 0) {
-				return findAux(node.getLeft(), target);
+				return findAux(node.getLeft(), target, count);
 			}
 		}
 
@@ -69,7 +69,7 @@ public class BinarySearchTree<T> implements BSTInterface<T>, Iterable<T> {
 
 	@Override
 	public T find(T element) {
-		return findAux(root, element);
+		return findAux(root, element, 0);
 	}
 	private T lastDeleted;
 	private BSTNode removeAux(BSTNode<T> node, T target) {
@@ -108,13 +108,19 @@ public class BinarySearchTree<T> implements BSTInterface<T>, Iterable<T> {
 
     // return minimum node
     public T min() {
+		int count = 0;
 		// if tree is not empty
 		if (root != null) {
-
+			count++;
 			BSTNode<T> node = root;
+			NodePackage nodepack = new NodePackage(node,count);
 			// find the smallest
-			while (node.getLeft != null)
+			while (node.getLeft != null) {
+				count++;
 				node = node.getLeft();
+			}
+
+			return new NodePackage(node.getInfo(),count);
 		}
 
         return null;
@@ -122,10 +128,17 @@ public class BinarySearchTree<T> implements BSTInterface<T>, Iterable<T> {
 
 	// return maximum node
     public T max() {
+		int count = 0;
 		if (root != null) {
+			count++;
 			BSTNode<T> node = root;
-			while (node.getRight != null)
+			NodePackage nodepack = new NodePackage(node,count)
+			while (node.getRight != null) {
+				count++;
 				node = node.getRight();
+			}
+
+			return new NodePackage(node.getInfo(),count);
 		}
         return null;
     }
