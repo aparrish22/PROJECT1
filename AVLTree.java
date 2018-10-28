@@ -1,5 +1,3 @@
-package project;
-
 public class AVLTree {
 	private Node root;
 	
